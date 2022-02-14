@@ -1,0 +1,44 @@
+﻿
+angry_dog_1 = AngryDog("Brian")
+angry_dog_2 = AngryDog("Merlin")
+angry_dog_1.draw_speech_balloon("Hello, my name is " + angry_dog_1.nick_name, None)
+angry_dog_1.draw_speech_balloon("How do you do?", angry_dog_2)
+angry_dog_2.draw_thought_balloon("Who are you? I think.")
+
+
+
+angry_cat_1 = AngryCat("Garfield", 10, "Mr. Garfield", 0, 10, 20)
+angry_cat_1.draw_speech_balloon("Hello, my name is " + angry_cat_1.nick_name, None)
+angry_dog_1.draw_speech_balloon("Hello " + angry_cat_1.nick_name, angry_cat_1)
+
+
+
+alien_1 = AngryCatAlien("Alien", 120, "Mr. Alien", 0, 10, 20, 3)
+if alien_1.is_intersecting_with(angry_cat_1):
+    alien_1.move(angry_cat_1.x + 20, angry_cat_1.y + 20)
+alien_1.appear()
+
+
+
+wizard_1 = AngryCatWizard("Gandalf", 75, "Mr. Gandalf", 10000, 30, 40, 100);
+wizard_1.draw(wizard_1.x, wizard_1.y)
+wizard_1.disappear_alien(alien_1)
+alien_1.appear()
+
+
+
+knight_1 = AngryCatKnight("Camelot", 35, "Sir Camelot", 5000, 50, 50, 100, 30)
+knight_1.draw(knight_1.x, knight_1.y)
+knight_1.unsheath_sword(alien_1)
+
+
+
+alien_1.draw_thought_balloon("I must be friendly or I'm dead...")
+alien_1.draw_speech_balloon("Pleased to meet you, Sir.", knight_1)
+
+
+
+isinstance(alien_1, AngryCat)
+isinstance(alien_1, ComicCharacter)
+isinstance(alien_1, GameCharacter)
+isinstance(alien_1, Alien)
